@@ -13,8 +13,8 @@
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
-cd seu-projeto
+git clone https://github.com/gabrielcicero45/certainly-not-google-calendar.git
+cd certainly-not-google-calendar
 ```
 ### 2. Install Dependencies
 ```bash
