@@ -2,9 +2,8 @@ class Api::V1::TasksController < ApplicationController
     before_action :set_task, only: [:show, :update, :destroy]
   
     def index
-      if params[:date_range].present?
-        start_date, end_date = params[:date_range]
-        @tasks = Task.where("start_date >= ? AND end_date <= ?", start_date, end_date)
+      if date_params.present?
+        @tasks = Task.where("start_date >= ? AND end_date <= ?", date_params[:start_date], date_params[:end_date])
       else
         @tasks = Task.all
       end
@@ -46,6 +45,10 @@ class Api::V1::TasksController < ApplicationController
   
     def task_params
       params.require(:task).permit(:name, :description, :start_date, :end_date)
+    end
+
+    def date_params
+      params.permit(:start_date, :end_date)
     end
   end
   
